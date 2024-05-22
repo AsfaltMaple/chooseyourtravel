@@ -6,13 +6,13 @@ body {
 
 }
 *{
-    margin: 20;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 }
 nav {
-    background-color: #4889a7;
+    background-color: #9a76a3;
     padding: 15px;
     display: flex;
     align-items: center;
@@ -38,7 +38,7 @@ nav {
   
   /* Basic CSS for the form elements */
   body {
-    font-family: Arial, sans-serif;
+    font-family: Verdana, sans-serif;
     /* margin: 20px; */
   }
   
