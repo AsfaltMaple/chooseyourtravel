@@ -32,7 +32,7 @@ nav {
   
   nav a {
     text-decoration: none;
-    color: #c1f1de;
+    color: #d9eee5;
     font-weight: bold;
   }
   
@@ -43,7 +43,9 @@ nav {
   }
   
   h1 {
-    margin-bottom: 20px;
+    font-weight: bold;
+    color: #d9eee5;
+    margin-bottom: 0px;
   }
   
   div {
