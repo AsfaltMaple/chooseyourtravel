@@ -1,7 +1,12 @@
 /* Basic CSS for the navigation bar */
 
+body {
+    background-image: url("sf.jpg");
+    background-size: 1800px;
+
+}
 *{
-    margin: 0;
+    margin: 20;
     padding: 0;
     box-sizing: border-box;
 
