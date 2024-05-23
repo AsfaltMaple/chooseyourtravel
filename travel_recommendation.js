@@ -6,8 +6,12 @@ const email = document.getElementById('email');
 const message = document.getElementById('message');
 
 function thankyou(){
+    resetForm();
     alert('Thank you for contacting us!');
-    name ="";
-    email ="";
-    message="";
 }
+
+function resetForm() {
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+  }
