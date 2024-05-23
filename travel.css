@@ -51,12 +51,17 @@ nav {
     margin-bottom: 10px;
   }
   .block {
-    float: left;
+    float: inline-start;
     background-color: #9a76a356;
-    max-width: 100px;
+    max-width: 500px;
     min-width: 40 px;
+    height: 150px;
     padding: 5px;
     margin: 5px;
+  }
+  .bold {
+    font-size: 20px;
+    font-weight: bold;
   }
   
   label {
