@@ -26,28 +26,24 @@ function searchDestination() {
     fetch('travel_recommendation_api.json')
     .then(response => response.json())
     .then(data => {
-        //data.conditions.find(item => item.name.toLowerCase() === input);
-        const country = data.countries.find(item => item.name.toLowerCase() === input);
-        console.log(country);
+        let keys = Object.keys(data);
+        let key = keys.find(keyWord => {
+                let lowerKey = keyWord.toLowerCase();
+                let isSubString = lowerKey.indexOf(input) > -1;
+                return isSubString;
+        })
         
-        //(item => item.name.toLowerCase() === input);
-        if (country) {
-           // const countryname = destination.countries.name.join(', ');
-            const countrycitiesname = data.countries.cities.join(', ');
-            console.log(countrycitiesname);
-            const countrycitiesimg = destination.countries.cities.imageUrl.join(', ');
-            const countrycitiesdesc = destination.countries.cities.description.join(', ');
-            
-            //const beaches = destination.beaches;
-  
-            resultDiv.innerHTML += `<h2>${destination.country}</h2>`;
-            //resultDiv.innerHTML += `<img src="${destination.imagesrc}" alt="hjh">`;
-  
-            resultDiv.innerHTML += `<p><strong>Countries:</strong> ${country}</p>`;
-            resultDiv.innerHTML += `<p><strong>Temples:</strong> ${countrycitiesimg}</p>`;
-            resultDiv.innerHTML += `<p><strong>Beaches:</strong> ${countrycitiesdesc}</p>`;
+        if (data[key]) {  
+            data[key].map(obj => {
+                let curDiv = '<div>';
+                curDiv += `<img src="${obj.imageUrl}" alt="hjh">`;
+                curDiv += `<h2>${obj.name}</h2>`;
+                curDiv += `<p>${obj.description}</p>`;
+                curDiv += '</div>'
+                resultDiv.innerHTML += curDiv;
+            });
           } else {
-            resultDiv.innerHTML = 'Condition not found.';
+            resultDiv.innerHTML = 'Location not found.';
           }
         })
 }
