@@ -21,21 +21,27 @@ btnSearch.addEventListener("click", searchDestination);
 function searchDestination() {
     const input = document.getElementById('destinationInput').value.toLowerCase();
     const resultDiv = document.getElementById('result');
-   // resultDiv.innerHTML = '';
+    resultDiv.innerHTML = '';
 
     fetch('travel_recommendation_api.json')
     .then(response => response.json())
     .then(data => {
-        const destination = data.destinations.find(item => item.name.toLowerCase() === input);
+        const destination = data.destinations.countries.find(item => item.name.toLowerCase() === input);
+        console.log(data.destination);
+        
+        //(item => item.name.toLowerCase() === input);
         if (destination) {
-            const countries = destination.countries.join(', ');
-            const temples = destination.temples.join(', ');
-            const beaches = destination.beaches;
+           // const countryname = destination.countries.name.join(', ');
+            const countrycitiesname = destination.countries.cities.name.join(', ');
+            const countrycitiesimg = destination.countries.cities.imageUrl.join(', ');
+            const countrycitiesdesc = destination.countries.cities.description.join(', ');
+            
+            //const beaches = destination.beaches;
   
             resultDiv.innerHTML += `<h2>${destination.country}</h2>`;
             //resultDiv.innerHTML += `<img src="${destination.imagesrc}" alt="hjh">`;
   
-            resultDiv.innerHTML += `<p><strong>Countries:</strong> ${countries}</p>`;
+            resultDiv.innerHTML += `<p><strong>Countries:</strong> ${countrycitiesname}</p>`;
             resultDiv.innerHTML += `<p><strong>Temples:</strong> ${temples}</p>`;
             resultDiv.innerHTML += `<p><strong>Beaches:</strong> ${beaches}</p>`;
           } else {
@@ -43,4 +49,3 @@ function searchDestination() {
           }
         })
 }
-console.log(searchDestination);
