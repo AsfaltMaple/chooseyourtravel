@@ -26,6 +26,16 @@ function searchDestination() {
     fetch('travel_recommendation_api.json')
     .then(response => response.json())
     .then(data => {
+        let cities = data.countries;
+        delete data.countries;
+        data.countries = Array();
+        cities.forEach(it =>{
+            data[it.name.toLowerCase()] = it;
+            it.cities.forEach(city => {
+                data.countries += city;
+            }) 
+        });
+
         let keys = Object.keys(data);
         let key = keys.find(keyWord => {
                 let lowerKey = keyWord.toLowerCase();
