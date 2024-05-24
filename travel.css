@@ -64,6 +64,11 @@ nav {
     font-weight: bold;
   }
   
+  .searchDestination {
+    width: max-content;
+    height: fit-content;
+  }
+
   label {
     display: inline-block;
     width: 100px;

@@ -26,24 +26,32 @@ function searchDestination() {
     fetch('travel_recommendation_api.json')
     .then(response => response.json())
     .then(data => {
-        let cities = data.countries;
+        // достаем все страны и сохраняем в перменную
+        let countries = data.countries;
+        // удаляем из начального объекта страны в таком виде в каком они там лежат
         delete data.countries;
-        data.countries = Array();
-        cities.forEach(it =>{
-            data[it.name.toLowerCase()] = it;
-            it.cities.forEach(city => {
-                data.countries += city;
-            }) 
+        // добавляем в дату пустой ключ для стран
+        data.countries = [];
+        countries.forEach(it =>{
+            // каждую страну добавляем как отдельный ключ
+            data[it.name.toLowerCase()] = it.cities;
+            // а так же все города из всех стран запихиваем в один большой массив
+            it.cities.forEach(city =>{
+                data.countries.push(city);
+            })
         });
 
+        // берем все ключи из даты
         let keys = Object.keys(data);
+        // ищем ключ который содержит инпут
         let key = keys.find(keyWord => {
                 let lowerKey = keyWord.toLowerCase();
                 let isSubString = lowerKey.indexOf(input) > -1;
                 return isSubString;
         })
         
-        if (data[key]) {  
+        if (data[key]) { 
+            // берем все обхекты по искомому ключу и пихаем их в див 
             data[key].map(obj => {
                 let curDiv = '<div>';
                 curDiv += `<img src="${obj.imageUrl}" alt="hjh">`;
