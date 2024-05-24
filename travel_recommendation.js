@@ -45,5 +45,7 @@ function searchDestination() {
           } else {
             resultDiv.innerHTML = 'Location not found.';
           }
-        })
+        });
+        document.getElementById("destinationInput").value = "";
+        
 }
