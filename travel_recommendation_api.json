@@ -1,5 +1,4 @@
 {
-    "destinations": {
     "countries": [
       {
         "id": 1,
@@ -78,6 +77,6 @@
         "description": "A famous beach in Rio de Janeiro, Brazil, with a vibrant atmosphere and scenic views."
       }
     ]
-    }
+    
   }
   

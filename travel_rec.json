@@ -1,0 +1,34 @@
+{
+    "destinations": {
+    "countries": 
+      {
+        "id": 1,
+        "name": "Australia",
+        "cities": [
+          {
+            "name": "Sydney, Australia",
+            "imageUrl": "enter_your_image_for_sydney.jpg",
+            "description": "A vibrant city known for its iconic landmarks like the Sydney Opera House and Sydney Harbour Bridge."
+          }
+        ]
+      }
+    ,
+    "temples": [
+      {
+        "id": 1,
+        "name": "Angkor Wat, Cambodia",
+        "imageUrl": "enter_your_image_for_angkor-wat.jpg",
+        "description": "A UNESCO World Heritage site and the largest religious monument in the world."
+      }
+    ],
+    "beaches": [
+      {
+        "id": 1,
+        "name": "Bora Bora, French Polynesia",
+        "imageUrl": "enter_your_image_for_bora-bora.jpg",
+        "description": "An island known for its stunning turquoise waters and luxurious overwater bungalows."
+      }
+    ]
+    }
+  }
+  
